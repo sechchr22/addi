@@ -5,12 +5,6 @@ repos:
         - id: flake8
           args:
             - --config=.code_quality/.flake8
-    -   repo: https://github.com/pycqa/pylint
-        rev: v2.8.2
-        hooks:
-        - id: pylint
-          args:
-          - --rcfile=.code_quality/.pylintrc
     -   repo: https://github.com/ambv/black
         rev: 21.5b1
         hooks:
