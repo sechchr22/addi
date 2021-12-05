@@ -2,6 +2,10 @@ import time
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from IPython.core.debugger import Pdb
+
+ipdb = Pdb()
+
 
 app = FastAPI()
 
@@ -16,9 +20,10 @@ class LeadInfo(BaseModel):
 
 
 @app.post("/evaluation")
-async def evluation(data: LeadInfo):
+def evluation(data: LeadInfo):
+    ipdb.set_trace()
     start = time.time()
-    validation = await validation_handler(4)
+    validation = validation_handler(4)
     end = time.time()
     execution_time = end - start
     print("EXECUTION_TIME: {}".format(execution_time))

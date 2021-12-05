@@ -7,10 +7,17 @@ from time import sleep
 from infrastructure.services.mock_response import MockResponse
 
 
-async def national_registry_identificaction_service(nin: int) -> dict:
+def national_registry_identificaction_service(nin: int) -> dict:
     # Hago una llamada al servicio
     # el servicio me traeria información de un lead
-    sleep(1.0)
-    response = MockResponse({"key1": "value1"}, 200)
-    result = response.toJSON()
-    return {"result": result}
+    sleep(5.0)
+    response = MockResponse(
+        {
+            "nin": "12345",
+            "birthdate": "22/05/1994",
+            "first_name": "sergio",
+            "last_name": "rueda"
+        }, 200
+    )
+    response_dict = response.toJSON()
+    return {"national_registry": response_dict}
