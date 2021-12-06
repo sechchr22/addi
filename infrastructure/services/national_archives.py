@@ -12,7 +12,15 @@ def national_archives_service(leadinfo: dict) -> dict:
     Returns:
         dict: response from national archive service
     """
+    response_dict = {}
     sleep(2.0)
     response = MockResponse({"judicial_records": "clean"}, 200)
-    response_dict = response.toJSON()
+    # simulating exceptions handling
+    if response.status_code != 200:
+        # i would do it with an error_handler
+        message = "error"
+        response_dict["response"] = message
+        response_dict["status"] = response.status_code
+    else:
+        response_dict = response.toJSON()
     return {"national_archives": response_dict}

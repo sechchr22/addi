@@ -11,18 +11,18 @@ class LeadInfo(BaseModel):
     """lead informationrmation"""
 
     nin: int
-    birthdate: str
+    birthdate: str  # Este campo lo pasaria a un datetime por ej
     first_name: str
     last_name: str
 
 
 @app.post("/evaluation")
-def evaluation(data: LeadInfo):
+def evaluation(data: LeadInfo) -> dict:
     """Evaluation endpoint.
     Args:
         leadinfo (dict): lead information
     Returns:
         dict: evaluation response with validation
     """
-    validation = validation_handler(data)
-    return {"validation": validation}
+    validation = validation_handler(dict(data))
+    return validation

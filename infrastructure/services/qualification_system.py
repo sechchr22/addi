@@ -13,5 +13,12 @@ def qualification_system_service(lead_nin: int) -> dict:
     """
     sleep(3.0)
     response = MockResponse({"qualification": 65}, 200)
-    response_dict = response.toJSON()
+    # simulating exceptions handling
+    if response.status_code != 200:
+        # i would do it with an error_handler
+        message = "error"
+        response_dict["response"] = message
+        response_dict["status"] = response.status_code
+    else:
+        response_dict = response.toJSON()
     return {"qualification_system": response_dict}
