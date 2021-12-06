@@ -1,3 +1,5 @@
 fastapi
 uvicorn
 ipython
+flake8
+pre-commit

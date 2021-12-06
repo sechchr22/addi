@@ -1,1 +1,1 @@
-""" Handler utilities. """
+""" Handler utilities module. """

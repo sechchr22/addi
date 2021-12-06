@@ -1,7 +1,16 @@
 """Handler utilities."""
 from concurrent.futures import ThreadPoolExecutor
+from types import FunctionType
+from typing import List
 
-def run_io_tasks_in_parallel(tasks) -> list:
+
+def run_io_tasks_in_parallel(tasks: List[FunctionType]) -> list:
+    """Run a list of tasks/functions in parallel.
+    Args:
+        tasks (dict): lead information
+    Returns:
+        list: list of tasks/functions return values.
+    """
     results = []
     with ThreadPoolExecutor() as executor:
         running_tasks = [executor.submit(task) for task in tasks]
@@ -9,39 +18,27 @@ def run_io_tasks_in_parallel(tasks) -> list:
             results.append(running_task.result())
         return results
 
+
 def compair_with_national_registry(data: dict, base: dict) -> bool:
-    # Return True if they are equal, False if they are different
-    # ahora.. que pasa si en base que sería la respuesta del servicio
-    # me trajera las llaves que quiero comparar iguales pero adicional 1 mas
-    # eso haria que el == fallara ?? si no seria armar otro dict con base con esas
-    # llaves que quiero comparar o irme por la comparacion larga .. podria asumirlo
+    """Compare two dictionaries to check if they are identical.
+    Args:
+        data (dict): dict to compare.
+        base (dict): base dict to compare.
+    Returns:
+        bool: True if both dict are identical, False otherwise.
+    """
     if data == base:
         return True
     return False
-    """ for key, value in data.items():
-        if key == "nin":
-            if value != base[key]
-                comparision = False
-                break
-            continue
-        if key == "birthdate"
-            if value != base[key]
-                comparision = False
-                break
-            continue
-        if key == "first_name"
-            if value != base[key]
-                comparision = False
-                break
-            continue
-        if key == "last_name"
-            if value != base[key]
-                comparision = False
-                break
-            continue
-    return comparision """
 
-def judicial_records(data: dict)-> bool:
+
+def judicial_records(data: dict) -> bool:
+    """Check if lead has any judicial record.
+    Args:
+        data (dict): lead information.
+    Returns:
+        bool: True if lead has at least one judicial record, False otherwise.
+    """
     response = data["response"]
     if response["judicial_records"] != "clean":
         return False

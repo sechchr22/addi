@@ -1,18 +1,15 @@
-import time
+"""API that serves the lead evaluation functionality."""
 
 from fastapi import FastAPI
+from infrastructure.delivery.handler.validation_handler import validation_handler
 from pydantic import BaseModel
-from IPython.core.debugger import Pdb
-
-ipdb = Pdb()
-
 
 app = FastAPI()
 
-from infrastructure.delivery.handler.validation_handler import validation_handler
-
 
 class LeadInfo(BaseModel):
+    """lead informationrmation"""
+
     nin: int
     birthdate: str
     first_name: str
@@ -20,11 +17,12 @@ class LeadInfo(BaseModel):
 
 
 @app.post("/evaluation")
-def evluation(data: LeadInfo):
-    #ipdb.set_trace()
-    start = time.time()
+def evaluation(data: LeadInfo):
+    """Evaluation endpoint.
+    Args:
+        leadinfo (dict): lead information
+    Returns:
+        dict: evaluation response with validation
+    """
     validation = validation_handler(data)
-    end = time.time()
-    execution_time = end - start
-    print("EXECUTION_TIME: {}".format(execution_time))
     return {"validation": validation}

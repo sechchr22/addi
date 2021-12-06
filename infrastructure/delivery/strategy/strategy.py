@@ -1,4 +1,5 @@
-# Esta va a ser la estrategía de arranque de la app 
+""" Strategy to service running."""
+# Esta va a ser la estrategía de arranque de la app
 # TODO: falta hacerle un START()
 
 import uvicorn
