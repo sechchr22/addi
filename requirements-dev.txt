@@ -1,5 +1,8 @@
+# Estas dependencias deben ser pinneadas con una version fija
 flake8
 pre-commit
 pytest
 requests
 pytest-mock
+ipython
+pre-commit

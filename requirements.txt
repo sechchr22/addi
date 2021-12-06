@@ -1,3 +1,4 @@
+# Estas dependencias deben ser pinneadas con una version fija
 fastapi
 uvicorn
 ipython
