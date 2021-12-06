@@ -9,7 +9,7 @@ ipdb = Pdb()
 
 app = FastAPI()
 
-from infrastructure.delivery.handler.validations_handler import validation_handler
+from infrastructure.delivery.handler.validation_handler import validation_handler
 
 
 class LeadInfo(BaseModel):
@@ -21,9 +21,9 @@ class LeadInfo(BaseModel):
 
 @app.post("/evaluation")
 def evluation(data: LeadInfo):
-    ipdb.set_trace()
+    #ipdb.set_trace()
     start = time.time()
-    validation = validation_handler(4)
+    validation = validation_handler(data)
     end = time.time()
     execution_time = end - start
     print("EXECUTION_TIME: {}".format(execution_time))

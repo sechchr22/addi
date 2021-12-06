@@ -1,4 +1,5 @@
-# Esta va a ser la estrategía de arranque de la app
+# Esta va a ser la estrategía de arranque de la app 
+# TODO: falta hacerle un START()
 
 import uvicorn
 from infrastructure.delivery.api import app

@@ -9,12 +9,12 @@ from infrastructure.services.national_archives import national_archives_service
 from infrastructure.services.national_registry_identification import (
     national_registry_identificaction_service,
 )
-from infrastructure.services.qualification_system import 
+from infrastructure.services.qualification_system import qualification_system_service
 
 national_registry_key = "national_registry"
 national_archives_key = "national_archives"
 
-def validation_handler(leadinfo: int) -> dict:
+def validation_handler(leadinfo: dict) -> dict:
     # Bringing lead info
     results = run_io_tasks_in_parallel(
         [
@@ -27,13 +27,16 @@ def validation_handler(leadinfo: int) -> dict:
     for result in results:
         if national_registry_key in result:
             comparision = compair_with_national_registry(leadinfo, result[national_registry_key])
+            continue
         if national_archives_key in result:
-            judicial_records = judicial_records(result[national_archives_key])
+            lead_judicial_records = judicial_records(result[national_archives_key])
+            continue
     
-    if comparision and judicial_records:
+    score = 0
+    if comparision and lead_judicial_records:
         qualification = qualification_system_service(nin)
         score = qualification["qualfication_system"]["qualification"]
-    
+
     if score > 60:
         return {"evaluation": "prospect"}
     

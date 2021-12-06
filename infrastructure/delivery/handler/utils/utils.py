@@ -42,6 +42,7 @@ def compair_with_national_registry(data: dict, base: dict) -> bool:
     return comparision """
 
 def judicial_records(data: dict)-> bool:
-    if data["judicial_records"] != "clean":
+    response = data["response"]
+    if response["judicial_records"] != "clean":
         return False
     return True

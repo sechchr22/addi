@@ -7,7 +7,7 @@ from time import sleep
 from infrastructure.services.mock_response import MockResponse
 
 
-def qualification_system_service() -> dict:
+def qualification_system_service(lead_nin: int) -> dict:
     sleep(3.0)
     response = MockResponse({"qualification": 65}, 200)
     response_dict = response.toJSON()
