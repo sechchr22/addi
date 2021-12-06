@@ -8,9 +8,6 @@ from infrastructure.delivery.handler.utils.utils import (
     judicial_records,
     run_io_tasks_in_parallel,
 )
-from IPython.core.debugger import Pdb
-
-ipdb = Pdb()
 
 national_registry_key = "national_registry"
 national_archives_key = "national_archives"
@@ -18,7 +15,6 @@ qualification_threshold = 60
 
 
 def validation_handler(leadinfo: dict) -> dict:
-    ipdb.set_trace()
     """Handles the lead validation.
     Args:
         leadinfo (dict): lead information
