@@ -41,5 +41,5 @@ def judicial_records(data: dict) -> bool:
     """
     response = data["response"]
     if response["judicial_records"] != "clean":
-        return False
-    return True
+        return True
+    return False

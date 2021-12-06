@@ -56,7 +56,7 @@ def validation_handler(leadinfo: dict) -> dict:
     label = "lead"
     # If lead information match and doesnt have any judicial record
     # Gets qualified by system
-    if comparision and lead_judicial_records:
+    if comparision and not lead_judicial_records:
         qualification = get_qualification(leadinfo["nin"])
         response = qualification["qualification_system"]["response"]
         score = response["qualification"]
