@@ -2,10 +2,9 @@
 project for addi 
 
 #TO DO:
-- Inyección de dependencias. (quizas lo haga).
+- Inyección de dependencias.
 - Función START() para el strategy.
-- CLI? .. o solo pegandole via curl? (pero pa esto tendrian que instalar los requirements y listo.. simplificar esto)
-- Manejo de excepciones. (Ya está un esquema.. pero puede ser 5000 veces mejor)
-- Mejora: No tanto código repetido en los tests.
-- Mejoraria cuestiones de código repetido.
+- CLI? .. o solo pegandole via curl?
+- Manejo de excepciones. (Ya está un esquema.. pero puede mejor)
+- Mejora: cuestiones de código repetido.
 - ReadME
