@@ -54,7 +54,7 @@ To use it. Is just and /evaluation/ endpoint with this payload(example) on it
 }
 ```
 
-curl example
+curl example (if running on localhost port 8080)
 ```sh
 curl -v -X POST "http://0.0.0.0:8080/evaluation" -H "Content-Type: application/json" -d '{"nin":12345, "birthdate": "22/05/1994", "first_name": "sergio", "last_name": "rueda"'
 ```
