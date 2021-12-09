@@ -65,16 +65,6 @@ You will recieve a response with the lead nin, the evaluation and the score
 ```
 
 
-Run the app
-```sh
-python -m infrastructure.delivery.strategy.strategy
-```
-Run the tests
-```sh
-python -m pytest -s tests/bussines_logic_tests.py
-```
-
-
 ## FILE STRUCTURE
 
 ### Folder: bussines
