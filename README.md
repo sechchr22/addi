@@ -42,6 +42,39 @@ Run the tests
 python -m pytest -s tests/bussines_logic_tests.py
 ```
 
+## USE
+To use it. Is just and /evaluation/ endpoint with this payload(example) on it
+
+```sh
+{
+    "nin": 12345,
+    "birthdate": "22/05/1994",
+    "first_name": "sergio",
+    "last_name": "rueda",
+}
+```
+
+curl example
+```sh
+curl -v -X POST "http://0.0.0.0:8080/evaluation" -H "Content-Type: application/json" -d '{"nin":12345, "birthdate": "22/05/1994", "first_name": "sergio", "last_name": "rueda"'
+```
+
+You will recieve a response with the lead nin, the evaluation and the score
+```sh
+{"validation":{"lead_nin":12345,"evaluation":"lead"}}
+```
+
+
+Run the app
+```sh
+python -m infrastructure.delivery.strategy.strategy
+```
+Run the tests
+```sh
+python -m pytest -s tests/bussines_logic_tests.py
+```
+
+
 ## FILE STRUCTURE
 
 ### Folder: bussines
