@@ -61,7 +61,7 @@ curl -v -X POST "http://0.0.0.0:8080/evaluation" -H "Content-Type: application/j
 
 You will recieve a response with the lead nin, the evaluation and the score
 ```sh
-{"validation":{"lead_nin":12345,"evaluation":"lead"}}
+{"lead_nin":12345,"evaluation":"lead","score":0}
 ```
 
 
